@@ -2,103 +2,85 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
-    <title>| Profesyonel Rehber Başvuru</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Rehber Başvurusu</title>
     <style>
-        body { background-color: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 20px; }
-        .main-panel { background: #121212; padding: 40px; border-radius: 10px; border-top: 4px solid #ffcc00; width: 100%; max-width: 750px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
-        h2 { color: #ffcc00; text-align: center; letter-spacing: 3px; margin-bottom: 30px; }
-        .section-title { color: #ffcc00; font-size: 18px; border-bottom: 1px solid #333; margin: 25px 0 15px; padding-bottom: 5px; text-transform: uppercase; }
-        .field { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: bold; }
-        input, textarea { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 5px; color: white; box-sizing: border-box; transition: 0.3s; }
-        input:focus, textarea:focus { border-color: #ffcc00; outline: none; background: #222; }
-        button { width: 100%; padding: 18px; background: #ffcc00; border: none; border-radius: 5px; color: #000; font-weight: bold; cursor: pointer; font-size: 17px; margin-top: 20px; }
-        button:hover { background: #ffd633; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); }
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #1a1a1a; color: white; display: flex; justify-content: center; padding: 20px; margin: 0; }
+        .form-container { background-color: #2c2f33; padding: 30px; border-radius: 12px; width: 100%; max-width: 550px; box-shadow: 0 10px 30px rgba(0,0,0,0.6); border: 1px solid #7289da; }
+        h2 { text-align: center; color: #7289da; text-transform: uppercase; letter-spacing: 2px; }
+        label { display: block; margin-top: 15px; color: #b9bbbe; font-weight: bold; }
+        input, textarea { width: 100%; padding: 12px; margin-top: 5px; border-radius: 6px; border: 1px solid #23272a; background-color: #40444b; color: white; box-sizing: border-box; outline: none; transition: 0.3s; }
+        input:focus, textarea:focus { border-color: #7289da; background-color: #484c52; }
+        button { width: 100%; padding: 15px; margin-top: 25px; background-color: #7289da; color: white; border: none; border-radius: 6px; cursor: pointer; font-weight: bold; font-size: 16px; transition: 0.3s; text-transform: uppercase; }
+        button:hover { background-color: #5b6eae; transform: translateY(-2px); }
+        button:active { transform: translateY(0); }
     </style>
 </head>
 <body>
 
-<div class="main-panel">
-    <h2>🛡️ EKİP BAŞVURU PANELİ</h2>
+<div class="form-container">
+    <h2>REHBER BAŞVURU SİSTEMİ</h2>
     <form id="applyForm">
-        
-        <div class="section-title">Kimlik Bilgileri</div>
-        <div class="field">
-            <label>Oyun İçi Adınız (Nickname)</label>
-            <input type="text" id="username" placeholder="Örn: " required>
-        </div>
-        <div class="field">
-            <label>Yaşınız</label>
-            <input type="number" id="age" required>
-        </div>
+        <label>🎮 Minecraft Kullanıcı Adın:</label>
+        <input type="text" id="user" required placeholder="Örn: Ege63">
 
-        <div class="section-title">Teknik ve Aktiflik</div>
-        <div class="field">
-            <label>Günde kaç saatinizi sunucuda geçirebilirsiniz?</label>
-            <input type="text" id="hours" required>
-        </div>
-        <div class="field">
-            <label>Minecraft komut bilginiz nedir? (1-10 arası puanlayın ve bildiğiniz kritik komutları yazın)</label>
-            <textarea id="cmds" rows="2" required></textarea>
-        </div>
+        <label>🎂 Yaşın:</label>
+        <input type="number" id="age" required>
 
-        <div class="section-title">Kriz Yönetimi & Senaryolar</div>
-        <div class="field">
-            <label>SORU 1: Sunucuda bir açık (bug) buldunuz ve bu açık size sınırsız eşya veriyor. Ne yaparsınız?</label>
-            <textarea id="q1" rows="3" required></textarea>
-        </div>
-        <div class="field">
-            <label>SORU 2: Bir rehber arkadaşınızın yetkisini kötüye kullandığını (örneğin haksız mute attığını) gördünüz. Tepkiniz ne olur?</label>
-            <textarea id="q2" rows="3" required></textarea>
-        </div>
-        <div class="field">
-            <label>SORU 3: Sohbette birisi "Bu sunucu berbat, başka sunucuya gelin" diyerek reklam yapıyor. Uygulayacağınız prosedür nedir?</label>
-            <textarea id="q3" rows="3" required></textarea>
-        </div>
-        <div class="field">
-            <label>SORU 4: Oyuncular arasında bir huzursuzluk var ve size sürekli "Admin nerede, neden ilgilenmiyorsunuz?" diye yükleniyorlar. Sakinliği nasıl sağlarsınız?</label>
-            <textarea id="q4" rows="3" required></textarea>
-        </div>
+        <label>⏰ Günlük Aktiflik Süren:</label>
+        <input type="text" id="active" required placeholder="Örn: 4-5 Saat">
 
-        <div class="section-title">Son Söz</div>
-        <div class="field">
-            <label>Seni diğer adaylardan ayıran en büyük özelliğin nedir?</label>
-            <textarea id="why_you" rows="3" required></textarea>
-        </div>
+        <label>📜 Komut Bilgin (%):</label>
+        <input type="number" id="commands" required placeholder="0-100 arası">
 
-        <button type="submit">BAŞVURUYU SİSTEME İŞLE</button>
+        <label>📝 Neden seni rehber olarak seçmeliyiz?</label>
+        <textarea id="special" rows="4" required placeholder="Kendinden bahset patron..."></textarea>
+
+        <button type="submit" id="submitBtn">BAŞVURUYU DİSCONS'A GÖNDER</button>
     </form>
 </div>
 
 <script>
-document.getElementById('applyForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbzBcspOAOuoeyoq_uYnKAsp5wsaDirV-IZMemYrveXX-E1VyzskO-qtmrj4_mXJn33TJQ/exec"; // n8n Webhook adresinizi buraya girin
+    document.getElementById('applyForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerText = "GÖNDERİLİYOR...";
 
-    const payload = {
-        user: document.getElementById('username').value,
-        age: document.getElementById('age').value,
-        active: document.getElementById('hours').value,
-        commands: document.getElementById('cmds').value,
-        bug_ans: document.getElementById('q1').value,
-        staff_ans: document.getElementById('q2').value,
-        ad_ans: document.getElementById('q3').value,
-        calm_ans: document.getElementById('q4').value,
-        special: document.getElementById('why_you').value,
-        status: "İnceleniyor",
-        time: new Date().toLocaleString('tr-TR')
-    };
+        const webhookUrl = "https://discord.com/api/webhooks/1493294402863370285/sUkFCrya88cw7n3g3WB1v7q6bialujkkUY4qBJD50I7QK4wAqmTwTqhy2CMfJ9mIz3xO";
 
-    fetch(WEBHOOK_URL, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-    }).then(() => {
-        alert('Başvurunuz başarıyla patrona iletildi.');
-        document.getElementById('applyForm').reset();
+        const payload = {
+            embeds: [{
+                title: "📩 YENİ REHBER BAŞVURUSU!",
+                color: 5814783, // Minecraft/Discord uyumlu yeşilimsi mavi
+                fields: [
+                    { name: "👤 Oyuncu", value: "`" + document.getElementById('user').value + "`", inline: true },
+                    { name: "📅 Yaş", value: "`" + document.getElementById('age').value + "`", inline: true },
+                    { name: "⚡ Komut Bilgisi", value: "`%" + document.getElementById('commands').value + "`", inline: true },
+                    { name: "⏳ Aktiflik", value: "`" + document.getElementById('active').value + "`", inline: false },
+                    { name: "📖 Açıklama", value: document.getElementById('special').value }
+                ],
+                footer: { text: "Ege Sunucu Başvuru Logu" },
+                timestamp: new Date()
+            }]
+        };
+
+        fetch(webhookUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(payload)
+        }).then(() => {
+            alert('Başvuru başarıyla Discord kanalına iletildi patron!');
+            document.getElementById('applyForm').reset();
+            btn.disabled = false;
+            btn.innerText = "BAŞVURUYU DİSCONS'A GÖNDER";
+        }).catch(err => {
+            alert('Hata oluştu! Discord Webhook bağlantısını kontrol et.');
+            btn.disabled = false;
+            btn.innerText = "TEKRAR DENE";
+        });
     });
-});
 </script>
 
 </body>
