@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>| Profesyonel Rehber Başvuru</title>
+    <style>
+        body { background-color: #0a0a0a; color: #e0e0e0; font-family: 'Segoe UI', sans-serif; display: flex; justify-content: center; padding: 20px; }
+        .main-panel { background: #121212; padding: 40px; border-radius: 10px; border-top: 4px solid #ffcc00; width: 100%; max-width: 750px; box-shadow: 0 15px 40px rgba(0,0,0,0.8); }
+        h2 { color: #ffcc00; text-align: center; letter-spacing: 3px; margin-bottom: 30px; }
+        .section-title { color: #ffcc00; font-size: 18px; border-bottom: 1px solid #333; margin: 25px 0 15px; padding-bottom: 5px; text-transform: uppercase; }
+        .field { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-size: 14px; font-weight: bold; }
+        input, textarea { width: 100%; padding: 12px; background: #1a1a1a; border: 1px solid #333; border-radius: 5px; color: white; box-sizing: border-box; transition: 0.3s; }
+        input:focus, textarea:focus { border-color: #ffcc00; outline: none; background: #222; }
+        button { width: 100%; padding: 18px; background: #ffcc00; border: none; border-radius: 5px; color: #000; font-weight: bold; cursor: pointer; font-size: 17px; margin-top: 20px; }
+        button:hover { background: #ffd633; box-shadow: 0 0 15px rgba(255, 204, 0, 0.4); }
+    </style>
+</head>
+<body>
+
+<div class="main-panel">
+    <h2>🛡️ EKİP BAŞVURU PANELİ</h2>
+    <form id="applyForm">
+        
+        <div class="section-title">Kimlik Bilgileri</div>
+        <div class="field">
+            <label>Oyun İçi Adınız (Nickname)</label>
+            <input type="text" id="username" placeholder="Örn: " required>
+        </div>
+        <div class="field">
+            <label>Yaşınız</label>
+            <input type="number" id="age" required>
+        </div>
+
+        <div class="section-title">Teknik ve Aktiflik</div>
+        <div class="field">
+            <label>Günde kaç saatinizi sunucuda geçirebilirsiniz?</label>
+            <input type="text" id="hours" required>
+        </div>
+        <div class="field">
+            <label>Minecraft komut bilginiz nedir? (1-10 arası puanlayın ve bildiğiniz kritik komutları yazın)</label>
+            <textarea id="cmds" rows="2" required></textarea>
+        </div>
+
+        <div class="section-title">Kriz Yönetimi & Senaryolar</div>
+        <div class="field">
+            <label>SORU 1: Sunucuda bir açık (bug) buldunuz ve bu açık size sınırsız eşya veriyor. Ne yaparsınız?</label>
+            <textarea id="q1" rows="3" required></textarea>
+        </div>
+        <div class="field">
+            <label>SORU 2: Bir rehber arkadaşınızın yetkisini kötüye kullandığını (örneğin haksız mute attığını) gördünüz. Tepkiniz ne olur?</label>
+            <textarea id="q2" rows="3" required></textarea>
+        </div>
+        <div class="field">
+            <label>SORU 3: Sohbette birisi "Bu sunucu berbat, başka sunucuya gelin" diyerek reklam yapıyor. Uygulayacağınız prosedür nedir?</label>
+            <textarea id="q3" rows="3" required></textarea>
+        </div>
+        <div class="field">
+            <label>SORU 4: Oyuncular arasında bir huzursuzluk var ve size sürekli "Admin nerede, neden ilgilenmiyorsunuz?" diye yükleniyorlar. Sakinliği nasıl sağlarsınız?</label>
+            <textarea id="q4" rows="3" required></textarea>
+        </div>
+
+        <div class="section-title">Son Söz</div>
+        <div class="field">
+            <label>Seni diğer adaylardan ayıran en büyük özelliğin nedir?</label>
+            <textarea id="why_you" rows="3" required></textarea>
+        </div>
+
+        <button type="submit">BAŞVURUYU SİSTEME İŞLE</button>
+    </form>
+</div>
+
+<script>
+document.getElementById('applyForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const WEBHOOK_URL = "N8N_WEBHOOK_LINKINIZ"; // n8n Webhook adresinizi buraya girin
+
+    const payload = {
+        user: document.getElementById('username').value,
+        age: document.getElementById('age').value,
+        active: document.getElementById('hours').value,
+        commands: document.getElementById('cmds').value,
+        bug_ans: document.getElementById('q1').value,
+        staff_ans: document.getElementById('q2').value,
+        ad_ans: document.getElementById('q3').value,
+        calm_ans: document.getElementById('q4').value,
+        special: document.getElementById('why_you').value,
+        status: "İnceleniyor",
+        time: new Date().toLocaleString('tr-TR')
+    };
+
+    fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+    }).then(() => {
+        alert('Başvurunuz başarıyla patrona iletildi.');
+        document.getElementById('applyForm').reset();
+    });
+});
+</script>
+
+</body>
+</html>
